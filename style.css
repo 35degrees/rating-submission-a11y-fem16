@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@100..900&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--orange: hsl(25, 97%, 53%);
+	--light-grey: hsl(217, 12%, 63%);
+	--dark-blue: hsl(213, 19%, 18%);
+	--very-dark-blue: hsl(216, 12%, 8%);
+	--medium-blue: hsla(213, 20%, 26%, 0.987);
+}
+
+body {
+	font-family: 'Overpass', sans-serif;
+	font-size: 15px;
+	background-color: var(--very-dark-blue);
+}
+
+#main-container {
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	place-content: center;
+}
+
+.card-container {
+	perspective: 1000px;
+	height: 400px;
+	width: 380px;
+}
+
+.card {
+	height: 400px;
+	width: 380px;
+	border-radius: 1rem;
+	display: grid;
+	padding: 1.5rem;
+	background-color: var(--dark-blue);
+	color: #fff;
+
+	box-shadow: 0 14px 28px rgba(188, 100, 23, 0.25),
+		0 10px 10px rgba(167, 57, 2, 0.22);
+}
+
+/* CUSTOM FLIP CODEPEN HERE: https://codepen.io/tjegan/pen/zrMdEO */
+
+.card-container.flip .card-flipper {
+	transform: rotateY(180deg);
+	transition: transform 0.7s cubic-bezier(0.29, -0.53, 0.72, 1.39);
+	transform-style: preserve-3d;
+}
+
+.card-flipper {
+	position: relative;
+}
+
+.front,
+.back {
+	backface-visibility: hidden;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height: 400px;
+	width: 380px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.front {
+	grid-template-columns: 1fr;
+	grid-template-rows: 18% auto 16% 18%;
+	gap: 1rem;
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+.star svg {
+	margin-top: 1rem;
+	margin-left: 1rem;
+	position: relative;
+}
+
+.star::before {
+	content: '';
+	height: 38px;
+	width: 38px;
+	position: absolute;
+	border-radius: 50%;
+	background-color: var(--medium-blue);
+	margin-top: 0.345rem;
+	margin-left: 0.35rem;
+}
+
+.front .text {
+	letter-spacing: 0.5px;
+	line-height: 1.4;
+
+	h1 {
+		margin-bottom: 0.8rem;
+		font-size: 1.8rem;
+	}
+
+	p {
+		font-weight: 300;
+		opacity: 0.7;
+	}
+}
+
+/* GOT THE INPUT PSEUDO CODE IDEA HERE : https://reintech.io/blog/how-to-style-a-radio-button-with-css# */
+.ratings {
+	position: relative;
+}
+
+.numbers {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	gap: 3.85rem;
+	margin-left: 1.34rem;
+	margin-top: 1.28rem;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+}
+form {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	gap: 1.2rem;
+	margin-top: 0.7rem;
+}
+
+form label {
+	color: transparent;
+}
+
+.custom-radio input[type='radio'] {
+	appearance: none;
+	height: 50px;
+	width: 50px;
+	border: none;
+	border-radius: 100%;
+	outline: none;
+	background-color: var(--medium-blue);
+	transition: box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+.custom-radio input[type='radio']:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 100%;
+	/* margin: 20% auto; */
+	border-radius: 50%;
+	background-color: transparent;
+}
+
+.custom-radio input[type='radio']:checked:before {
+	background-color: var(--orange);
+}
+
+.btn[disabled] {
+	width: 100%;
+	padding: 0.1rem;
+	border-radius: 2rem;
+	background-color: hsla(25, 97%, 53%, 0.449);
+	border: none;
+	margin: 0.8rem 0;
+	transition: transform 0.12s;
+	cursor: auto;
+	&:hover {
+		background-color: hsla(25, 97%, 53%, 0.449);
+	}
+	&:active {
+		transform: scale(1) translateY(0);
+	}
+}
+
+.btn {
+	width: 100%;
+	padding: 0.1rem;
+	border-radius: 2rem;
+	border: none;
+	margin: 0.8rem 0;
+	transition: transform 0.12s;
+	background-color: var(--orange);
+	cursor: pointer;
+	&:hover {
+		background-color: #fff;
+	}
+	&:active {
+		transform: scale(0.992) translateY(2px);
+	}
+}
+
+.btn-text {
+	text-transform: uppercase;
+	letter-spacing: 1.7px;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+
+/* BACK  */
+
+.back {
+	grid-template-columns: 1fr;
+	grid-template-rows: 40% auto 50%;
+	justify-content: center;
+	align-items: center;
+	transform: rotateY(180deg);
+}
+
+.back .tablet-image {
+	text-align: center;
+	margin: 0.6rem;
+}
+
+.selection-output,
+.thank-you-text {
+	text-align: center;
+	margin-top: 0.2rem;
+	justify-content: center;
+	line-height: 1.5;
+}
+
+.star-rating {
+	justify-content: center;
+	align-self: center;
+	justify-self: center;
+	color: var(--orange);
+	opacity: 0.8;
+	position: relative;
+	width: 75%;
+	text-align: center;
+	transform: translate(16%, 50%);
+}
+
+.star-rating::before {
+	content: '';
+	position: absolute;
+	width: 220px;
+	height: 30px;
+	background-color: var(--medium-blue);
+	z-index: -1;
+	top: -22.5%;
+	left: 6%;
+	border-radius: 1.5rem;
+}
+
+.thank-you-text h1 {
+	font-size: 1.6rem;
+}
+
+.thank-you-text p {
+	letter-spacing: 0.8px;
+	font-size: 0.9rem;
+	margin-top: 0.8rem;
+	opacity: 0.7;
+}
+
+/* OLD FORM  */
+
+/* form {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 3.3rem;
+	margin-top: 0.3rem;
+} */
+
+/* .ratings-input {
+	width: 19%;
+	position: relative;
+}
+
+.ratings-input::before {
+	content: '';
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	background-color: var(--medium-blue);
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 1;
+	top: 1%;
+	left: 10%;
+	&:hover {
+		background-color: #fff;
+	}
+}
+.ratings-selected::before {
+	content: '';
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	background-color: var(--orange);
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 1;
+	top: 1%;
+	left: 10%;
+} */
+
+/* input[type='radio'] {
+	opacity: 0;
+}
+
+label + input[type='radio'] {
+	position: relative;
+	opacity: 0.5;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+	align-content: center;
+}
+
+label + input[type='radio']::before {
+	content: '';
+	position: absolute;
+	width: 53px;
+	height: 53px;
+	background-color: var(--medium-blue);
+	border-radius: 100%;
+	border: none;
+	left: -177%;
+	top: 0;
+}
+
+label {
+	position: absolute;
+	top: 64.8%;
+	z-index: -1;
+}
+
+input[type='radio']:checked::before {
+	content: '';
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-color: var(--orange);
+
+	z-index: 2;
+	font-size: 2rem;
+}
+
+input[type='radio']:not(:checked)::before {
+	content: '';
+	position: absolute;
+	width: 53px;
+	height: 53px;
+	background-color: var(--medium-blue);
+	border-radius: 100%;
+	border: none;
+	left: -177%;
+	top: 0;
+}
+input[type='radio']:checked label {
+	font-size: 2rem;
+	color: var(--medium-blue);
+} */

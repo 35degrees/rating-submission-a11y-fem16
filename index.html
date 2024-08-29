@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" defer></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Quality Control Rating Submission</title>
+	</head>
+	<body>
+		<main id="main-container">
+			<div class="card-container">
+				<div class="card-flipper">
+					<section class="card front">
+						<div class="star" alt="star logo">
+							<svg width="17" height="16" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="m9.067.43 1.99 4.031c.112.228.33.386.58.422l4.45.647a.772.772 0 0 1 .427 1.316l-3.22 3.138a.773.773 0 0 0-.222.683l.76 4.431a.772.772 0 0 1-1.12.813l-3.98-2.092a.773.773 0 0 0-.718 0l-3.98 2.092a.772.772 0 0 1-1.119-.813l.76-4.431a.77.77 0 0 0-.222-.683L.233 6.846A.772.772 0 0 1 .661 5.53l4.449-.647a.772.772 0 0 0 .58-.422L7.68.43a.774.774 0 0 1 1.387 0Z"
+									fill="#FC7614"
+								/>
+							</svg>
+						</div>
+						<div class="text">
+							<h1>How did we do?</h1>
+							<p>
+								Please let us know how we did with your support request. All
+								feedback is appreciated to help us improve our offering!
+							</p>
+						</div>
+						<div class="ratings" id="ratings">
+							<div class="numbers" aria-hidden="true">
+								<p class="number">1</p>
+								<p class="number">2</p>
+								<p class="number">3</p>
+								<p class="number">4</p>
+								<p class="number">5</p>
+							</div>
+							<form aria-labelledby="ratings" role="listbox">
+								<div role="option" tabindex="0">
+									<label for="ratings" class="custom-radio">
+										<input
+											type="radio"
+											value="1"
+											class="ratings-input"
+											name="ratings"
+										/>
+										1</label
+									>
+								</div>
+								<div role="option" tabindex="0">
+									<label for="ratings" class="custom-radio">
+										<input
+											type="radio"
+											value="2"
+											class="ratings-input"
+											name="ratings"
+										/>
+										2</label
+									>
+								</div>
+								<div role="option" tabindex="0">
+									<label for="ratings" class="custom-radio">
+										<input
+											type="radio"
+											value="3"
+											class="ratings-input"
+											name="ratings"
+										/>
+										3</label
+									>
+								</div>
+								<div role="option" tabindex="0">
+									<label for="ratings" class="custom-radio">
+										<input
+											type="radio"
+											value="4"
+											class="ratings-input"
+											name="ratings"
+										/>
+										4</label
+									>
+								</div>
+								<div role="option" tabindex="0">
+									<label for="ratings" class="custom-radio">
+										<input
+											type="radio"
+											value="5"
+											class="ratings-input"
+											name="ratings"
+										/>
+										5</label
+									>
+								</div>
+							</form>
+						</div>
+						<button class="btn" id="submit-button" disabled>
+							<p class="btn-text">Submit</p>
+						</button>
+					</section>
+					<section class="card back">
+						<div class="tablet-image">
+							<img
+								src="images/illustration-thank-you.svg"
+								alt="thank you for your submission"
+							/>
+						</div>
+						<div class="selection-output">
+							<p class="star-rating"></p>
+						</div>
+						<div class="thank-you-text">
+							<h1>Thank you!</h1>
+							<p>
+								We appreciate your taking the time to give a rating. If you ever
+								need more support, don't hesitate to get in touch!
+							</p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
