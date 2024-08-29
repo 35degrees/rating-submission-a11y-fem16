@@ -148,6 +148,9 @@ form label {
 	background-color: var(--medium-blue);
 	transition: box-shadow 0.3s ease;
 	cursor: pointer;
+	&:hover {
+		background-color: hsla(213, 20%, 32%, 0.987);
+	}
 }
 
 .custom-radio input[type='radio']:before {
